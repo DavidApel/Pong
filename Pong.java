@@ -35,8 +35,6 @@ public class Pong extends JPanel implements Runnable, KeyListener {
 
     private void initGame() {
         //Hier werden alle Objekte des Spiels initialisiert
-        // Hello World
-        // asdasd
         spielball = new Ball(400, 300);
         b1 = new Bumper(40, 225); //
         b2 = new Bumper(730, 225); //
