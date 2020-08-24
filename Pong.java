@@ -109,7 +109,6 @@ public class Pong extends JPanel implements Runnable, KeyListener {
         g.setColor(Color.BLUE);
         g.fillRect(b2.getXKoord(), b2.getYKoord(), b2.getWidth(), b2.getHeight());
 
-
         g.setColor(Color.YELLOW); // Zeichnen des Bonus-Objektes
         g.drawRoundRect(bonus1.getXKoord(), bonus1.getYKoord(), bonus1.getSize(), bonus1.getSize(), bonus1.getArcw(), bonus1.getArch());
         g.fillRoundRect(bonus1.getXKoord(), bonus1.getYKoord(), bonus1.getSize(), bonus1.getSize(), bonus1.getArcw(), bonus1.getArch());
@@ -117,10 +116,10 @@ public class Pong extends JPanel implements Runnable, KeyListener {
 
 
         g.setColor(Color.RED);
-        g.setFont(new Font("Arial", Font.PLAIN, 50));
+        g.setFont(new Font("Arial", Font.PLAIN, 40));
         g.drawString("" + counterL, 80, 100);
         g.setColor(Color.BLUE);
-        g.drawString("" + counterR, 680, 100);
+        g.drawString("" + counterR, 700, 100);
 
 
         Graphics2D g2 = (Graphics2D) g; //Import der Graphics2D Klasse, um ein Objekt zu zeichnen
@@ -130,7 +129,6 @@ public class Pong extends JPanel implements Runnable, KeyListener {
         g2.draw(new Line2D.Double(773, 23, 773, 777));
         g2.draw(new Line2D.Double(25, 23, 773, 23));
         g2.draw(new Line2D.Double(25, 577, 773, 577));
-
         Color myColor1 = new Color(0, 51, 204); // Erstellen einer Farbe um den blauen Spielfeldrand auf die Farbe des Hintergrundbildes anzupassen
         g2.setStroke(new BasicStroke(45f)); // Breite des Objektes wird auf 45 gesetzt
         g2.setColor(Color.RED);
@@ -139,6 +137,9 @@ public class Pong extends JPanel implements Runnable, KeyListener {
         g2.setColor(myColor1);
         g2.draw(new Line2D.Double(424, 0, 800, 0));
         g2.draw(new Line2D.Double(424, 600, 800, 600));
+        g2.setColor(Color.WHITE);
+        g2.setStroke(new BasicStroke(1f));
+        g2.draw(new Line2D.Double(401, 0, 401, 800));
 
         g.setColor(Color.WHITE); // Bestimmen der Farbe, falls der Texturpfad nicht gefunden wird
         g.fillOval(spielball.getXKoord(), spielball.getYKoord(), spielball.getSize(), spielball.getSize()); // Ausfüllen des Kreises, falls die Balltextur nicht gefunden wird
@@ -150,11 +151,11 @@ public class Pong extends JPanel implements Runnable, KeyListener {
     public void keyPressed(KeyEvent e) {
 
         if ((e.getKeyCode() == KeyEvent.VK_UP)) {
-            b2.setDirection(1); // Auslösen der Funktion "setDirection" mit dem Parameter 1
+            b2.setDirection(1); // Auslösen der Funktion "setDirection" mit dem jeweiligen Parameter 1
         }
 
         if ((e.getKeyCode() == KeyEvent.VK_DOWN)) {
-            b2.setDirection(2); // Auslösen der Funktion "setDirection" mit dem Parameter 2
+            b2.setDirection(2);
         }
 
         if ((e.getKeyChar() == 'w')) {
@@ -169,7 +170,7 @@ public class Pong extends JPanel implements Runnable, KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         if ((e.getKeyCode() == KeyEvent.VK_UP)) {
-            b2.setDirection(0); /// Auslösen der Funktion "setDirection" mit dem Parameter 0
+            b2.setDirection(0);
         }
 
         if ((e.getKeyCode() == KeyEvent.VK_DOWN)) {
