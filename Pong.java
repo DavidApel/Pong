@@ -10,7 +10,7 @@ public class Pong extends JPanel implements Runnable, KeyListener {
     Bumper b1;
     Bumper b2;
     Bonus bonus1;
-    int counterL, counterR, i;
+    int counterL, counterR;
     Image img = Toolkit.getDefaultToolkit().getImage("Bilder/pong_background.png"); // Einfügen des Hintergrundbildes
     Image ball = Toolkit.getDefaultToolkit().getImage("Bilder/ball_background.png"); // Einfügen der Balltextur
 
@@ -29,7 +29,6 @@ public class Pong extends JPanel implements Runnable, KeyListener {
         myFrame.setVisible(true);
         counterL = 0;
         counterR = 0;
-        i = 0;
         Thread th = new Thread(this);
         th.start();
     }
@@ -57,14 +56,12 @@ public class Pong extends JPanel implements Runnable, KeyListener {
                 spielball.newSpawn();
                 spielball.aendereXRichtung();
                 counterR++;
-                i++;
             }
 
             if (spielball.getXKoord() > 800 - spielball.getSize()){
                 spielball.newSpawn();
                 spielball.aendereXRichtung();
                 counterL++;
-                i++;
             }
 
             if (spielball.getYKoord() < 30 || spielball.getYKoord() > 577 - spielball.getSize()){ // Wenn der Spielball an die Seitenlinien kommt, wird die y Richtung verändert
